@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TechNewsView.iml" filepath="$PROJECT_DIR$/.idea/modules/TechNewsView.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TechNewsView.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TechNewsView.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/tech-news-views/TechNewsView.app.tech-news-views.iml" filepath="$PROJECT_DIR$/.idea/modules/app/tech-news-views/TechNewsView.app.tech-news-views.iml" />
     </modules>
   </component>
 </project>

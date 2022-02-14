@@ -1,2 +1,3 @@
 rootProject.name = "TechNewsView"
 include ':app'
+include ':app:tech-news-views'
