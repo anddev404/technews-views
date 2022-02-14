@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.anddev404.tech_news_views.placeholder.PlaceholderContent
+import com.anddev404.tech_news_views.placeholder.NewsItem
 
 /**
  * A fragment representing a list of Items.
@@ -38,7 +38,7 @@ class NewsListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = NewsItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                adapter = NewsItemRecyclerViewAdapter(NewsItem.getExampleItemList())
             }
         }
         return view
