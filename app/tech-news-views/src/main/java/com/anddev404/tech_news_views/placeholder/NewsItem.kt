@@ -1,6 +1,12 @@
 package com.anddev404.tech_news_views.placeholder
 
-class NewsItem(var header: String) {
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
+class NewsItem(var header: String) : Parcelable {
+
 
     companion object {
 
