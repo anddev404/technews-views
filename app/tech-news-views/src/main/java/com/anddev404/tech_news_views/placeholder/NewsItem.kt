@@ -10,12 +10,12 @@ class NewsItem(var header: String) : Parcelable {
 
     companion object {
 
-        fun getEmptyItemList(): List<NewsItem> {
-            return listOf()
+        fun getEmptyItemList(): ArrayList<NewsItem> {
+            return arrayListOf()
         }
 
-        fun getExampleItemList(): List<NewsItem> {
-            return listOf(NewsItem("header 1"), NewsItem("header 2"), NewsItem("header 3"))
+        fun getExampleItemList(): ArrayList<NewsItem> {
+            return arrayListOf(NewsItem("header 1"), NewsItem("header 2"), NewsItem("header 3"))
         }
     }
 
