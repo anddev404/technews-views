@@ -14,18 +14,16 @@ class NewsItem(var header: String) : Parcelable {
             return arrayListOf()
         }
 
-        fun getExampleItemList(): ArrayList<NewsItem> {
-            return arrayListOf(
-                NewsItem("header 1"),
-                NewsItem("header 2"),
-                NewsItem("header 3"),
-                NewsItem("header 4"),
-                NewsItem("header 5"),
-                NewsItem("header 6")
-            )
+        fun getLongExampleItemList(): ArrayList<NewsItem> {
+
+            val exampleListOfItems = ArrayList<NewsItem>()
+            for (i in 0..100) {
+                exampleListOfItems.add(NewsItem("header $i"))
+            }
+            return exampleListOfItems
         }
 
-        fun getExampleItemList2(): ArrayList<NewsItem> {
+        fun getShortExampleItemList(): ArrayList<NewsItem> {
             return arrayListOf(
                 NewsItem("1. header"),
                 NewsItem("2. header"),
