@@ -1,6 +1,7 @@
 package com.anddev404.tech_news_views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,6 @@ class NewsListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
             newsList = it.getParcelableArrayList<NewsItem>(ARG_NEWS_LIST) as ArrayList<NewsItem>
@@ -35,15 +35,31 @@ class NewsListFragment : Fragment() {
 
         // Set the adapter
         if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = NewsItemRecyclerViewAdapter(newsList)
-            }
+            changeLayoutManager(view)
         }
         return view
+    }
+
+    fun changeLayoutManager(recyclerView: RecyclerView) {
+        with(recyclerView) {
+            layoutManager = when {
+                columnCount <= 1 -> LinearLayoutManager(context)
+                else -> GridLayoutManager(context, columnCount)
+            }
+
+        }
+        recyclerView.adapter = NewsItemRecyclerViewAdapter(newsList)
+
+    }
+
+    fun setData(columnCount: Int, newsList: ArrayList<NewsItem>) {
+
+        this.columnCount = columnCount
+        this.newsList = newsList
+
+        if (view is RecyclerView) {
+            changeLayoutManager(view as RecyclerView)
+        }
     }
 
     companion object {
