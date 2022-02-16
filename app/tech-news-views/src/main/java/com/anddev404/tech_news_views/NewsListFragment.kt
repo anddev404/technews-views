@@ -71,6 +71,45 @@ class NewsListFragment : Fragment() {
         }
     }
 
+//region: position of recyclerView
+
+    fun getPositionFirstItem(): Int {
+
+        if (view is RecyclerView) {
+            return ((view as RecyclerView).layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
+        }
+        return 0
+    }
+
+    fun getPositionLastItem(): Int {
+
+        if (view is RecyclerView) {
+            return ((view as RecyclerView).layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+        }
+        return 0
+    }
+
+    fun scrollToPosition(positionToScroll: Int) {
+
+        if (view is RecyclerView) {
+
+            if (positionToScroll >= getPositionFirstItem()) {
+
+                var visibleItemCount =
+                    getPositionLastItem() - getPositionFirstItem()
+
+                (view as RecyclerView).scrollToPosition(positionToScroll + visibleItemCount - columnCount)
+
+            } else {
+                (view as RecyclerView).scrollToPosition(positionToScroll)
+            }
+
+
+        }
+
+    }
+
+    //endregion
     companion object {
 
         // TODO: Customize parameter argument names
