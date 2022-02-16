@@ -40,7 +40,7 @@ class NewsListFragment : Fragment() {
         return view
     }
 
-    fun changeLayoutManager(recyclerView: RecyclerView) {
+    private fun changeLayoutManager(recyclerView: RecyclerView) {
         with(recyclerView) {
             layoutManager = when {
                 columnCount <= 1 -> LinearLayoutManager(context)
