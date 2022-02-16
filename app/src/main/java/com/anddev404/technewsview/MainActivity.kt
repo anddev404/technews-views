@@ -1,8 +1,8 @@
 package com.anddev404.technewsview
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.NewsListFragment
 import com.anddev404.tech_news_views.placeholder.NewsItem
 
@@ -27,6 +27,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        var button = findViewById<Button>(R.id.test_button)
+        button.setOnClickListener({
+            if (newsFragment2 is NewsListFragment) {
+                newsFragment2.addItems(NewsItem.getShortExampleItemList())
+            }
+        })
 
     }
 }
