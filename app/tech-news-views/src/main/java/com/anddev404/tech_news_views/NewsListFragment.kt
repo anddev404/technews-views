@@ -62,6 +62,15 @@ class NewsListFragment : Fragment() {
         }
     }
 
+    fun addItems(newsList: ArrayList<NewsItem>) {
+
+        this.newsList.addAll(newsList)
+
+        if (view is RecyclerView) {
+            (view as RecyclerView).adapter?.notifyDataSetChanged()
+        }
+    }
+
     companion object {
 
         // TODO: Customize parameter argument names
