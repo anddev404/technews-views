@@ -13,9 +13,9 @@
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/item_imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@android:mipmap/sym_def_app_icon" />
+        android:src="`" />
 
 </LinearLayout>
