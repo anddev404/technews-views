@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
                 //newsFragment1.addItems(NewsItem.getShortExampleItemList())
             }
 
+            override fun tapItem(itemPosition: Int, newsItem: NewsItem) {
+                Log.d("MARCIN", "tap: $itemPosition");
+
+            }
+
 
         })
 
