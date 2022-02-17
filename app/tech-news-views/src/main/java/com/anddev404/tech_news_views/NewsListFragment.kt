@@ -46,7 +46,12 @@ class NewsListFragment : Fragment() {
                 }
             }, view)
 
-
+            (view.adapter as NewsItemRecyclerViewAdapter).setOnTapItemListener(
+                object : NewsItemRecyclerViewAdapter.OnTapItemListener {
+                    override fun tapItem(itemPosition: Int, newsItem: NewsItem) {
+                        mListener?.tapItem(itemPosition, newsItem)
+                    }
+                })
         }
         return view
     }
