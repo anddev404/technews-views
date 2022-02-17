@@ -1,7 +1,6 @@
 package com.anddev404.tech_news_views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.placeholder.NewsItem
+import com.anddev404.tech_news_views.tools.scrolling.OnScrollToEndListListener
+import com.anddev404.tech_news_views.tools.scrolling.Scrolling
 
 /**
  * A fragment representing a list of Items.
@@ -18,6 +19,8 @@ class NewsListFragment : Fragment() {
 
     private var columnCount = 1
     private var newsList = arrayListOf<NewsItem>()
+    private var scrolling: Scrolling? = null
+    private var mListener: OnNewsListFragmentListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,13 @@ class NewsListFragment : Fragment() {
         // Set the adapter
         if (view is RecyclerView) {
             changeLayoutManager(view)
+
+            scrolling = Scrolling(object : OnScrollToEndListListener {
+                override fun endOfList(downloadPage: Int) {
+                }
+            }, view)
+
+
         }
         return view
     }
@@ -63,6 +73,7 @@ class NewsListFragment : Fragment() {
     }
 
     fun addItems(newsList: ArrayList<NewsItem>) {
+        scrolling?.downloadedNextPage()
 
         this.newsList.addAll(newsList)
 
