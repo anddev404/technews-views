@@ -1,9 +1,11 @@
 package com.anddev404.technewsview
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.anddev404.tech_news_views.NewsListFragment
+import com.anddev404.tech_news_views.OnNewsListFragmentListener
 import com.anddev404.tech_news_views.placeholder.NewsItem
 
 
@@ -18,6 +20,14 @@ class MainActivity : AppCompatActivity() {
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.fragmentNewsView, newsFragment1).commit();
 
+        newsFragment1.setOnNewsListFragmentListener(object : OnNewsListFragmentListener {
+            override fun updateList(pageNumber: Int) {
+                Log.d("MARCIN", "download page: $pageNumber");
+                //newsFragment1.addItems(NewsItem.getShortExampleItemList())
+            }
+
+
+        })
 
         val newsFragment2 = supportFragmentManager.findFragmentById(R.id.staticFragmentNewsView)
         newsFragment2?.let {
@@ -30,8 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         var button = findViewById<Button>(R.id.test_button)
         button.setOnClickListener({
-            if (newsFragment2 is NewsListFragment) {
-                newsFragment2.addItems(NewsItem.getShortExampleItemList())
+            if (newsFragment1 is NewsListFragment) {
+                newsFragment1.addItems(NewsItem.getShortExampleItemList())
             }
         })
 
