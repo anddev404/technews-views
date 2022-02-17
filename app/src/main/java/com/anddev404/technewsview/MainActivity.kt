@@ -3,10 +3,12 @@ package com.anddev404.technewsview
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.anddev404.tech_news_views.NewsListFragment
 import com.anddev404.tech_news_views.OnNewsListFragmentListener
 import com.anddev404.tech_news_views.placeholder.NewsItem
+import com.squareup.picasso.Picasso
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +31,20 @@ class MainActivity : AppCompatActivity() {
             override fun tapItem(itemPosition: Int, newsItem: NewsItem) {
                 Log.d("MARCIN", "tap: $itemPosition");
 
+            }
+
+            override fun setImage(url: String, newsItem: NewsItem, imageView: ImageView) {
+                Picasso.with(applicationContext)
+                    .load(url)
+                    .placeholder(
+                        applicationContext.getResources()
+                            .getDrawable(R.drawable.ic_launcher_foreground)
+                    )
+                    .error(
+                        applicationContext.getResources()
+                            .getDrawable(R.drawable.ic_launcher_background)
+                    )
+                    .into(imageView)
             }
 
 
