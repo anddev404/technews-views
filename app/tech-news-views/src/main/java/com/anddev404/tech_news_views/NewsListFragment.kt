@@ -42,6 +42,7 @@ class NewsListFragment : Fragment() {
 
             scrolling = Scrolling(object : OnScrollToEndListListener {
                 override fun endOfList(downloadPage: Int) {
+                    mListener?.updateList(downloadPage)
                 }
             }, view)
 
@@ -121,6 +122,11 @@ class NewsListFragment : Fragment() {
     }
 
     //endregion
+
+    fun setOnNewsListFragmentListener(onNewsListFragmentListener: OnNewsListFragmentListener) {
+        mListener = onNewsListFragmentListener
+    }
+
     companion object {
 
         // TODO: Customize parameter argument names
