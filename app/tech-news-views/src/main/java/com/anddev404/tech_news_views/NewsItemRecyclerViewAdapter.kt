@@ -26,6 +26,9 @@ class NewsItemRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.idView.text = item.header
+        holder.idView.setOnClickListener({
+            mListener?.tapItem(position, values[position]);
+        })
     }
 
     override fun getItemCount(): Int = values.size
@@ -37,6 +40,17 @@ class NewsItemRecyclerViewAdapter(
         override fun toString(): String {
             return super.toString() + " '" + idView.text + "'"
         }
+    }
+
+    private var mListener: OnTapItemListener? = null
+
+    fun setOnTapItemListener(onTapItemListener: OnTapItemListener) {
+        mListener = onTapItemListener;
+
+    }
+
+    interface OnTapItemListener {
+        fun tapItem(itemPosition: Int, newsItem: NewsItem)
     }
 
 }
