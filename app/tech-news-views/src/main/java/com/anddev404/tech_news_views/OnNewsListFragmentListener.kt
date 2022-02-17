@@ -7,6 +7,6 @@ interface OnNewsListFragmentListener {
 
     fun updateList(pageNumber: Int)
     fun tapItem(itemPosition: Int, newsItem: NewsItem)
-    fun setImage(url: String, newsItem: NewsItem, imagewView: ImageView)
+    fun setImage(url: String, newsItem: NewsItem, imageView: ImageView)
 
 }
