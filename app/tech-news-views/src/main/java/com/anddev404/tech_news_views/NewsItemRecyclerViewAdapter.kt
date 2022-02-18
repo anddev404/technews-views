@@ -2,6 +2,7 @@ package com.anddev404.tech_news_views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.databinding.FragmentNewsItemBinding
@@ -29,6 +30,8 @@ class NewsItemRecyclerViewAdapter(
         holder.idView.setOnClickListener({
             mListener?.tapItem(position, values[position]);
         })
+
+        mListener?.setImage(values[position].imageUrl, values[position], holder.imageView)
     }
 
     override fun getItemCount(): Int = values.size
@@ -36,6 +39,7 @@ class NewsItemRecyclerViewAdapter(
     inner class ViewHolder(binding: FragmentNewsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val idView: TextView = binding.itemHeader
+        val imageView: ImageView = binding.itemImageView
 
         override fun toString(): String {
             return super.toString() + " '" + idView.text + "'"
@@ -51,6 +55,8 @@ class NewsItemRecyclerViewAdapter(
 
     interface OnTapItemListener {
         fun tapItem(itemPosition: Int, newsItem: NewsItem)
+        fun setImage(url: String, newsItem: NewsItem, imageView: ImageView)
+
     }
 
 }

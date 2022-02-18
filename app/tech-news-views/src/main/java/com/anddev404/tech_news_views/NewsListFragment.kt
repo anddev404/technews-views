@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,6 +51,10 @@ class NewsListFragment : Fragment() {
                 object : NewsItemRecyclerViewAdapter.OnTapItemListener {
                     override fun tapItem(itemPosition: Int, newsItem: NewsItem) {
                         mListener?.tapItem(itemPosition, newsItem)
+                    }
+
+                    override fun setImage(url: String, newsItem: NewsItem, imageView: ImageView) {
+                        mListener?.setImage(url, newsItem, imageView)
                     }
                 })
         }
