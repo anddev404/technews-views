@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 class Scrolling(
     onScrollToEndListListeener: OnScrollToEndListListener,
     val recyclerView: RecyclerView,
-    var showedPage: Int = 1
+    var showedPage: Int
 ) {
 
     private var waitingForNewData = false
@@ -16,10 +16,6 @@ class Scrolling(
         this.onScrollToEndListListener = onScrollToEndListListeener
 
         recyclerView.setOnScrollListener(object : RecyclerView.OnScrollListener() {
-
-            val linearLayoutManager: LinearLayoutManager? =
-                recyclerView.getLayoutManager() as LinearLayoutManager
-
             var totalItemCount = 0
             var lastVisibleItem = 0
             var visibleThreshold = 10
@@ -28,6 +24,9 @@ class Scrolling(
                 recyclerView: RecyclerView, dx: Int, dy: Int
             ) {
                 super.onScrolled(recyclerView, dx, dy)
+
+                val linearLayoutManager: LinearLayoutManager? =
+                    recyclerView.getLayoutManager() as LinearLayoutManager
 
                 totalItemCount = linearLayoutManager?.itemCount ?: 0
                 lastVisibleItem = linearLayoutManager?.findLastVisibleItemPosition() ?: 0
@@ -38,7 +37,6 @@ class Scrolling(
 
                 }
             }
-
         })
     }
 
