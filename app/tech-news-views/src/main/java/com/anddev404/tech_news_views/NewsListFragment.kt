@@ -22,12 +22,16 @@ class NewsListFragment : Fragment() {
     private var newsList = arrayListOf<NewsItem>()
     private var scrolling: Scrolling? = null
     private var mListener: OnNewsListFragmentListener? = null
+    private var pages = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
             newsList = it.getParcelableArrayList<NewsItem>(ARG_NEWS_LIST) as ArrayList<NewsItem>
+            pages = it.getInt(ARG_PAGES)
+
+            if (pages == 0) if (newsList.size > 0) pages = 1
         }
     }
 
@@ -45,7 +49,7 @@ class NewsListFragment : Fragment() {
                 override fun endOfList(downloadPage: Int) {
                     mListener?.updateList(downloadPage)
                 }
-            }, view)
+            }, view, pages)
 
             (view.adapter as NewsItemRecyclerViewAdapter).setOnTapItemListener(
                 object : NewsItemRecyclerViewAdapter.OnTapItemListener {
@@ -73,13 +77,16 @@ class NewsListFragment : Fragment() {
 
     }
 
-    fun setData(columnCount: Int, newsList: ArrayList<NewsItem>) {
-
+    fun changeView(columnCount: Int) {
         this.columnCount = columnCount
-        this.newsList = newsList
 
         if (view is RecyclerView) {
-            changeLayoutManager(view as RecyclerView)
+            with(view as RecyclerView) {
+                layoutManager = when {
+                    columnCount <= 1 -> LinearLayoutManager(context)
+                    else -> GridLayoutManager(context, columnCount)
+                }
+            }
         }
     }
 
@@ -95,7 +102,7 @@ class NewsListFragment : Fragment() {
 
 //region: position of recyclerView
 
-    fun getPositionFirstItem(): Int {
+    fun getPositionFirstVisibleItem(): Int {
 
         if (view is RecyclerView) {
             return ((view as RecyclerView).layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
@@ -103,7 +110,7 @@ class NewsListFragment : Fragment() {
         return 0
     }
 
-    fun getPositionLastItem(): Int {
+    private fun getPositionLastVisibleItem(): Int {
 
         if (view is RecyclerView) {
             return ((view as RecyclerView).layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
@@ -115,10 +122,10 @@ class NewsListFragment : Fragment() {
 
         if (view is RecyclerView) {
 
-            if (positionToScroll >= getPositionFirstItem()) {
+            if (positionToScroll >= getPositionFirstVisibleItem()) {
 
                 var visibleItemCount =
-                    getPositionLastItem() - getPositionFirstItem()
+                    getPositionLastVisibleItem() - getPositionFirstVisibleItem()
 
                 (view as RecyclerView).scrollToPosition(positionToScroll + visibleItemCount - columnCount)
 
@@ -133,7 +140,7 @@ class NewsListFragment : Fragment() {
 
     //endregion
 
-    fun setOnNewsListFragmentListener(onNewsListFragmentListener: OnNewsListFragmentListener) {
+    fun setOnNewsListFragmentListener(onNewsListFragmentListener: OnNewsListFragmentListener?) {
         mListener = onNewsListFragmentListener
     }
 
@@ -142,14 +149,17 @@ class NewsListFragment : Fragment() {
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
         const val ARG_NEWS_LIST = "news-list"
+        const val ARG_PAGES = "pages"
 
         // TODO: Customize parameter initialization
         @JvmStatic
-        fun newInstance(columnCount: Int, newsList: ArrayList<NewsItem>) =
+        fun newInstance(columnCount: Int, newsList: ArrayList<NewsItem>, pages: Int = 1) =
             NewsListFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                     putParcelableArrayList(ARG_NEWS_LIST, newsList)
+                    putInt(ARG_PAGES, pages)
+
                 }
             }
     }
