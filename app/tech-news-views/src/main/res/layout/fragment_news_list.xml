@@ -6,8 +6,6 @@
     android:name="com.anddev404.tech_news_views.NewsListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     android:background="@color/background_recycler_view"
     app:layoutManager="LinearLayoutManager"
     tools:context=".NewsListFragment"
