@@ -31,29 +31,137 @@ class NewsItem(var header: String, var imageUrl: String) : Parcelable {
         fun getShortExampleItemList(): ArrayList<NewsItem> {
             return arrayListOf(
                 NewsItem(
-                    "1. header",
+                    "Apple Watch 7",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
                 ),
                 NewsItem(
-                    "2. header",
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
                 ),
                 NewsItem(
-                    "3. header",
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
                 ),
                 NewsItem(
-                    "4. header",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
-                ),
-                NewsItem(
-                    "5. header",
+                    "Apple Watch 7",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
                 ),
                 NewsItem(
-                    "6. header",
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
-                )
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Apple Watch 7",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
+                NewsItem(
+                    "Pegasus spyware scandal uncovered by fake image file on an iPhone",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu726oeFoAfkD5EpO-s2rzc8y1Wo_TClKFA&usqp=CAU"
+                ),
+                NewsItem(
+                    "Warning you could be MORE at risk of being tracked with Apple AirTags if yopu don't use specific proiduct, expert reveals",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU"
+                ),
             )
         }
     }
