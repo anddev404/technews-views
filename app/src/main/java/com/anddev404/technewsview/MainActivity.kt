@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val newsFragment1: NewsListFragment =
-            NewsListFragment.newInstance(2, NewsItem.getLongExampleItemList())
+            NewsListFragment.newInstance(1, NewsItem.getShortExampleItemList())
 
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.fragmentNewsView, newsFragment1).commit();
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         newsFragment2?.let {
             if (newsFragment2 is NewsListFragment) {
                 with(newsFragment2) {
-                    setData(4, NewsItem.getShortExampleItemList())
+                    // setData(4, NewsItem.getShortExampleItemList())
                 }
             }
         }
