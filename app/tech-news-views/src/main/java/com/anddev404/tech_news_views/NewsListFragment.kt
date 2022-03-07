@@ -28,7 +28,8 @@ class NewsListFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
-            newsList = it.getParcelableArrayList<NewsItem>(ARG_NEWS_LIST) as ArrayList<NewsItem>
+            newsList = ((it.getParcelableArray(ARG_NEWS_LIST)
+                ?: arrayOf()) as Array<NewsItem>).toCollection(ArrayList())
             pages = it.getInt(ARG_PAGES)
 
             if (pages == 0) if (newsList.size > 0) pages = 1
@@ -153,11 +154,15 @@ class NewsListFragment : Fragment() {
 
         // TODO: Customize parameter initialization
         @JvmStatic
-        fun newInstance(columnCount: Int, newsList: ArrayList<NewsItem>, pages: Int = 1) =
+        fun newInstance(
+            columnCount: Int = 1,
+            newsList: Array<NewsItem> = arrayOf(),
+            pages: Int = 1
+        ) =
             NewsListFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
-                    putParcelableArrayList(ARG_NEWS_LIST, newsList)
+                    putParcelableArray(ARG_NEWS_LIST, newsList)
                     putInt(ARG_PAGES, pages)
 
                 }
