@@ -5,8 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class Scrolling(
     onScrollToEndListListeener: OnScrollToEndListListener,
-    val recyclerView: RecyclerView,
-    var showedPage: Int
+    recyclerView: RecyclerView
 ) {
 
     private var waitingForNewData = false
@@ -32,15 +31,13 @@ class Scrolling(
                 lastVisibleItem = linearLayoutManager?.findLastVisibleItemPosition() ?: 0
                 if (!waitingForNewData && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
                     waitingForNewData = true
-                    showedPage++
-                    onScrollToEndListListeener?.endOfList(showedPage)
-
+                    onScrollToEndListListeener?.endOfList()
                 }
             }
         })
     }
 
-    fun downloadedNextPage() {
+    fun unlockListenerAfterUpdateList() {
         waitingForNewData = false
     }
 
