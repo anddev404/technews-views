@@ -22,7 +22,6 @@ class NewsListFragment : Fragment() {
     private var newsList = arrayListOf<NewsItem>()
     private var scrolling: Scrolling? = null
     private var mListener: OnNewsListFragmentListener? = null
-    private var pages = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +29,7 @@ class NewsListFragment : Fragment() {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
             newsList = ((it.getParcelableArray(ARG_NEWS_LIST)
                 ?: arrayOf()) as Array<NewsItem>).toCollection(ArrayList())
-            pages = it.getInt(ARG_PAGES)
 
-            if (pages == 0) if (newsList.size > 0) pages = 1
         }
     }
 
@@ -47,10 +44,10 @@ class NewsListFragment : Fragment() {
             changeLayoutManager(view)
 
             scrolling = Scrolling(object : OnScrollToEndListListener {
-                override fun endOfList(downloadPage: Int) {
-                    mListener?.updateList(downloadPage)
+                override fun endOfList() {
+                    mListener?.updateList()
                 }
-            }, view, pages)
+            }, view)
 
             (view.adapter as NewsItemRecyclerViewAdapter).setOnTapItemListener(
                 object : NewsItemRecyclerViewAdapter.OnTapItemListener {
@@ -92,7 +89,8 @@ class NewsListFragment : Fragment() {
     }
 
     fun addItems(newsList: ArrayList<NewsItem>) {
-        scrolling?.downloadedNextPage()
+
+        scrolling?.unlockListenerAfterUpdateList()
 
         this.newsList.addAll(newsList)
 
@@ -150,20 +148,17 @@ class NewsListFragment : Fragment() {
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
         const val ARG_NEWS_LIST = "news-list"
-        const val ARG_PAGES = "pages"
 
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(
             columnCount: Int = 1,
             newsList: Array<NewsItem> = arrayOf(),
-            pages: Int = 1
         ) =
             NewsListFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                     putParcelableArray(ARG_NEWS_LIST, newsList)
-                    putInt(ARG_PAGES, pages)
 
                 }
             }
