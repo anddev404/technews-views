@@ -126,7 +126,18 @@ class NewsListFragment : Fragment() {
                 var visibleItemCount =
                     getPositionLastVisibleItem() - getPositionFirstVisibleItem()
 
-                (view as RecyclerView).scrollToPosition(positionToScroll + visibleItemCount - columnCount)
+                var newPositionToScroll = positionToScroll + visibleItemCount - columnCount
+
+                if (newPositionToScroll > (view as RecyclerView).adapter?.itemCount ?: 0) {
+                    newPositionToScroll =
+                        (view as RecyclerView).adapter?.itemCount ?: 0
+                    newPositionToScroll = newPositionToScroll - 1
+                    (view as RecyclerView).scrollToPosition(newPositionToScroll)
+                    
+                } else {
+                    (view as RecyclerView).scrollToPosition(newPositionToScroll)
+
+                }
 
             } else {
                 (view as RecyclerView).scrollToPosition(positionToScroll)
