@@ -20,6 +20,7 @@ class NewsListFragment : Fragment() {
 
     private var columnCount = 1
     private var newsList = arrayListOf<NewsItem>()
+    private var positionToScroll = 0
     private var scrolling: Scrolling? = null
     private var mListener: OnNewsListFragmentListener? = null
 
@@ -29,7 +30,7 @@ class NewsListFragment : Fragment() {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
             newsList = ((it.getParcelableArray(ARG_NEWS_LIST)
                 ?: arrayOf()) as Array<NewsItem>).toCollection(ArrayList())
-
+            positionToScroll = it.getInt(ARG_POSITION_TO_SCROLL)
         }
     }
 
@@ -61,6 +62,11 @@ class NewsListFragment : Fragment() {
                 })
         }
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (positionToScroll > 0) scrollToPosition(positionToScroll)
     }
 
     private fun changeLayoutManager(recyclerView: RecyclerView) {
@@ -133,7 +139,6 @@ class NewsListFragment : Fragment() {
                         (view as RecyclerView).adapter?.itemCount ?: 0
                     newPositionToScroll = newPositionToScroll - 1
                     (view as RecyclerView).scrollToPosition(newPositionToScroll)
-                    
                 } else {
                     (view as RecyclerView).scrollToPosition(newPositionToScroll)
 
@@ -159,18 +164,20 @@ class NewsListFragment : Fragment() {
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
         const val ARG_NEWS_LIST = "news-list"
+        const val ARG_POSITION_TO_SCROLL = "position"
 
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(
             columnCount: Int = 1,
             newsList: Array<NewsItem> = arrayOf(),
+            scrollToPosition: Int = 0
         ) =
             NewsListFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                     putParcelableArray(ARG_NEWS_LIST, newsList)
-
+                    putInt(ARG_POSITION_TO_SCROLL, scrollToPosition)
                 }
             }
     }
