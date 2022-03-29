@@ -107,7 +107,7 @@ class NewsListFragment : Fragment() {
 
 //region: position of recyclerView
 
-    fun getPositionFirstVisibleItem(): Int {
+    fun getFirstVisibleItemPosition(): Int {
 
         if (view is RecyclerView) {
             return ((view as RecyclerView).layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
@@ -115,7 +115,7 @@ class NewsListFragment : Fragment() {
         return 0
     }
 
-    private fun getPositionLastVisibleItem(): Int {
+    private fun getLastItemPosition(): Int {
 
         if (view is RecyclerView) {
             return ((view as RecyclerView).layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
