@@ -118,39 +118,20 @@ class NewsListFragment : Fragment() {
     private fun getLastItemPosition(): Int {
 
         if (view is RecyclerView) {
-            return ((view as RecyclerView).layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+            var position = (view as RecyclerView).adapter?.itemCount ?: 0
+            if (position > 0) return position - 1
         }
         return 0
     }
 
-    fun scrollToPosition(positionToScroll: Int) {
-
+    private fun scrollToPosition(positionToScroll: Int) {
         if (view is RecyclerView) {
-
-            if (positionToScroll >= getPositionFirstVisibleItem()) {
-
-                var visibleItemCount =
-                    getPositionLastVisibleItem() - getPositionFirstVisibleItem()
-
-                var newPositionToScroll = positionToScroll + visibleItemCount - columnCount
-
-                if (newPositionToScroll > (view as RecyclerView).adapter?.itemCount ?: 0) {
-                    newPositionToScroll =
-                        (view as RecyclerView).adapter?.itemCount ?: 0
-                    newPositionToScroll = newPositionToScroll - 1
-                    (view as RecyclerView).scrollToPosition(newPositionToScroll)
-                } else {
-                    (view as RecyclerView).scrollToPosition(newPositionToScroll)
-
-                }
-
+            if (positionToScroll > getLastItemPosition()) {
+                (view as RecyclerView).scrollToPosition(getLastItemPosition())
             } else {
                 (view as RecyclerView).scrollToPosition(positionToScroll)
             }
-
-
         }
-
     }
 
     //endregion
