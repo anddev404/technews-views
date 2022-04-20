@@ -8,33 +8,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentNewsView"
-        android:name="com.anddev404.tech_news_views.NewsListFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/staticFragmentNewsView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_news_list" />
-
-    <fragment
-        android:id="@+id/staticFragmentNewsView"
-        android:name="com.anddev404.tech_news_views.NewsListFragment"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@id/test_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragmentNewsView"
-        tools:layout="@layout/fragment_news_list" />
-
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Click"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/staticFragmentNewsView" />
-
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_news_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
