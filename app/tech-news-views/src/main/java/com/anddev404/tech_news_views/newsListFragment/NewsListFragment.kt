@@ -1,4 +1,4 @@
-package com.anddev404.tech_news_views
+package com.anddev404.tech_news_views.newsListFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.anddev404.tech_news_views.placeholder.NewsItem
+import com.anddev404.tech_news_views.R
+import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
 import com.anddev404.tech_news_views.tools.scrolling.OnScrollToEndListListener
 import com.anddev404.tech_news_views.tools.scrolling.Scrolling
 

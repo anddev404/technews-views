@@ -1,4 +1,4 @@
-package com.anddev404.tech_news_views.placeholder
+package com.anddev404.tech_news_views.newsListFragment.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

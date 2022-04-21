@@ -1,4 +1,4 @@
-package com.anddev404.tech_news_views
+package com.anddev404.tech_news_views.newsListFragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.databinding.FragmentNewsItemBinding
-import com.anddev404.tech_news_views.placeholder.NewsItem
+import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
 
 class NewsItemRecyclerViewAdapter(
     private val values: List<NewsItem>

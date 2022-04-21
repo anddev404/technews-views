@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     android:background="@color/background_recycler_view"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".NewsListFragment"
+    tools:context=".newsListFragment.NewsListFragment"
     tools:listitem="@layout/fragment_news_item" />

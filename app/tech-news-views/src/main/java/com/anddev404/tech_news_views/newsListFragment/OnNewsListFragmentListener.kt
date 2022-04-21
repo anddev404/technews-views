@@ -1,7 +1,7 @@
-package com.anddev404.tech_news_views
+package com.anddev404.tech_news_views.newsListFragment
 
 import android.widget.ImageView
-import com.anddev404.tech_news_views.placeholder.NewsItem
+import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
 
 interface OnNewsListFragmentListener {
 
