@@ -51,7 +51,7 @@ class NewsDetailsFragment : Fragment() {
         }
     }
 
-    fun configureWebView() {
+    private fun configureWebView() {
         webView.settings.javaScriptEnabled = true
         webView.setWebViewClient(WebViewClient())
     }
@@ -64,14 +64,18 @@ class NewsDetailsFragment : Fragment() {
         return false
     }
 
+    fun setBundle(url: String) {
+        arguments = Bundle().apply {
+            putString(ARG_URL, url)
+        }
+    }
+
     companion object {
 
         @JvmStatic
         fun newInstance(url: String) =
             NewsDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_URL, url)
-                }
+                setBundle(url)
             }
     }
 }
