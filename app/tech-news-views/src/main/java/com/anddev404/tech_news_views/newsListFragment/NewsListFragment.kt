@@ -141,6 +141,18 @@ class NewsListFragment : Fragment() {
         mListener = onNewsListFragmentListener
     }
 
+    fun setBundle(
+        columnCount: Int = 1,
+        newsList: Array<NewsItem> = arrayOf(),
+        scrollToPosition: Int = 0
+    ) {
+        arguments = Bundle().apply {
+            putInt(ARG_COLUMN_COUNT, columnCount)
+            putParcelableArray(ARG_NEWS_LIST, newsList)
+            putInt(ARG_POSITION_TO_SCROLL, scrollToPosition)
+        }
+    }
+
     companion object {
 
         // TODO: Customize parameter argument names
@@ -156,11 +168,7 @@ class NewsListFragment : Fragment() {
             scrollToPosition: Int = 0
         ) =
             NewsListFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                    putParcelableArray(ARG_NEWS_LIST, newsList)
-                    putInt(ARG_POSITION_TO_SCROLL, scrollToPosition)
-                }
+                setBundle(columnCount, newsList, scrollToPosition)
             }
     }
 }
