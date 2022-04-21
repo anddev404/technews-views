@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-class NewsItem(var header: String, var imageUrl: String) : Parcelable {
+class NewsItem(var header: String, var imageUrl: String, var siteUrl: String = "") : Parcelable {
 
 
     companion object {
