@@ -1,6 +1,7 @@
 package com.anddev404.tech_news_views.newsListFragment
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,8 +27,8 @@ class NewsItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.header
-        holder.idView.setOnClickListener({
+        holder.title.text = item.header
+        holder.view.setOnClickListener({
             mListener?.tapItem(position, values[position]);
         })
 
@@ -38,11 +39,12 @@ class NewsItemRecyclerViewAdapter(
 
     inner class ViewHolder(binding: FragmentNewsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemHeader
+        val view: View = binding.allView
+        val title: TextView = binding.itemHeader
         val imageView: ImageView = binding.itemImageView
 
         override fun toString(): String {
-            return super.toString() + " '" + idView.text + "'"
+            return super.toString() + " '" + title.text + "'"
         }
     }
 
