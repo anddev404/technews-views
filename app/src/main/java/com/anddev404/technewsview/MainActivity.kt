@@ -18,15 +18,19 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        list =
-            NewsListFragment.newInstance(1, NewsItem.getShortExampleItemList().toTypedArray())
-        getSupportFragmentManager().beginTransaction()
-            .add(R.id.fragmentNewsView, list).commit();
+        if (savedInstanceState == null) {
 
-        details =
-            NewsDetailsFragment.newInstance("https://www.gsmmaniak.pl/1302493/android-13-telefony-xiaomi-bez-aktualizacji/")
-        getSupportFragmentManager().beginTransaction()
-            .add(R.id.fragmentDetails, details).commit();
+            list =
+                NewsListFragment.newInstance(1, NewsItem.getShortExampleItemList().toTypedArray())
+            getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentNewsView, list).commit();
+
+            details =
+                NewsDetailsFragment.newInstance("https://www.gsmmaniak.pl/1302493/android-13-telefony-xiaomi-bez-aktualizacji/")
+            getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentDetails, details).commit();
+        }
+
     }
 
 }
