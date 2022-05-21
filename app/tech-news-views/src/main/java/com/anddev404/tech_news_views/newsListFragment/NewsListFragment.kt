@@ -1,6 +1,7 @@
 package com.anddev404.tech_news_views.newsListFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,9 @@ import com.anddev404.tech_news_views.tools.scrolling.Scrolling
  */
 class NewsListFragment : Fragment() {
 
+    private val TAG = "TechNewsViews"
+    private val CLASS_NAME = NewsListFragment::class.simpleName
+
     private var columnCount = 1
     private var newsList = arrayListOf<NewsItem>()
     private var positionToScroll = 0
@@ -27,6 +31,9 @@ class NewsListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.w(TAG, "onCreate: $CLASS_NAME")
+
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
             newsList = ((it.getParcelableArray(ARG_NEWS_LIST)
@@ -40,6 +47,8 @@ class NewsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_news_list, container, false)
+
+        Log.w(TAG, "onCreateView: $CLASS_NAME")
 
         // Set the adapter
         if (view is RecyclerView) {

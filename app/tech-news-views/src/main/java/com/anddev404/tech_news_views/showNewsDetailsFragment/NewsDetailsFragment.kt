@@ -1,6 +1,7 @@
 package com.anddev404.tech_news_views.showNewsDetailsFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.anddev404.tech_news_views.R
 private const val ARG_URL = "url"
 
 class NewsDetailsFragment : Fragment() {
+    private val TAG = "TechNewsViews"
+    private val CLASS_NAME = NewsDetailsFragment::class.simpleName
 
     private var url: String = ""
     private lateinit var webView: WebView
@@ -22,6 +25,9 @@ class NewsDetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.w(TAG, "onCreate: $CLASS_NAME")
+
         arguments?.let {
             url = it.getString(ARG_URL) ?: url
         }
@@ -33,6 +39,8 @@ class NewsDetailsFragment : Fragment() {
     ): View? {
 
         var view = inflater.inflate(R.layout.fragment_news_details, container, false)
+
+        Log.w(TAG, "onCreateView: $CLASS_NAME")
 
         webView = view.findViewById(R.id.news_details_web_view)
         configureWebView()
