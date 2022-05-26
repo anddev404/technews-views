@@ -62,6 +62,7 @@
                     android:id="@+id/item_imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:riv_corner_radius="5dp"
                     android:adjustViewBounds="true"
                     android:src="@mipmap/exaple_image" />
 
