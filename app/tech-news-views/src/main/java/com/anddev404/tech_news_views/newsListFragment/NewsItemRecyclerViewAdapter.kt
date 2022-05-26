@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.databinding.FragmentNewsItemBinding
 import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
+import com.makeramen.roundedimageview.RoundedImageView
 
 class NewsItemRecyclerViewAdapter(
     private val values: List<NewsItem>
@@ -41,7 +42,7 @@ class NewsItemRecyclerViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val view: View = binding.allView
         val title: TextView = binding.itemHeader
-        val imageView: ImageView = binding.itemImageView
+        val imageView: RoundedImageView = binding.itemImageView
 
         override fun toString(): String {
             return super.toString() + " '" + title.text + "'"
