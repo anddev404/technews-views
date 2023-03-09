@@ -7,6 +7,6 @@ import kotlinx.android.parcel.Parcelize
 class Error(
     var errorText: String = "Unknown Error",
     var errorTextButton: String = "Ok",
-    var errorType: ErrorType = ErrorType.UNKNOWN_ERROR
+    var errorCode: Int = 0
 ) : Parcelable {
 }
