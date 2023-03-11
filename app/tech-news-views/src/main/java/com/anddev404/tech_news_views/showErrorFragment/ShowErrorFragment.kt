@@ -16,7 +16,7 @@ class ShowErrorFragment : Fragment() {
     private val TAG = "TechNewsViews"
     private val CLASS_NAME = ShowErrorFragment::class.simpleName
 
-    private var error = Error()
+    private lateinit var error: Error
 
     private lateinit var errorTextView: TextView
     private lateinit var errorButton: Button
@@ -27,11 +27,12 @@ class ShowErrorFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         Log.w(TAG, "onCreate: $CLASS_NAME")
-
-        arguments?.let { arguments ->
-            arguments.getParcelable<Error>(ARG_PARAM1)?.let {
-                error = it
-            }
+        if (!::error.isInitialized) {
+            error = arguments?.let { arguments ->
+                arguments.getParcelable<Error>(ARG_PARAM1)?.let {
+                    it
+                }
+            } ?: Error()
         }
     }
 
