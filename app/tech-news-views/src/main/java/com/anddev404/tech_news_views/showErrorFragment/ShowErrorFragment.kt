@@ -57,9 +57,9 @@ class ShowErrorFragment : Fragment() {
     }
 
     private fun setButtonClickListener() {
-        errorButton.setOnClickListener({
+        errorButton.setOnClickListener {
             mListener?.clickedErrorButton(error)
-        })
+        }
     }
 
     private fun setTextToViews() {
