@@ -28,8 +28,10 @@ class ShowErrorFragment : Fragment() {
 
         Log.w(TAG, "onCreate: $CLASS_NAME")
 
-        arguments?.let {
-            error = it.getParcelable<Error>(ARG_PARAM1) ?: Error()
+        arguments?.let { arguments ->
+            arguments.getParcelable<Error>(ARG_PARAM1)?.let {
+                error = it
+            }
         }
     }
 
