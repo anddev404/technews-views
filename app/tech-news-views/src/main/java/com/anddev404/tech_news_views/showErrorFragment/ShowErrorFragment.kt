@@ -67,6 +67,14 @@ class ShowErrorFragment : Fragment() {
         errorButton.text = error.errorTextButton
     }
 
+    fun setError(error: Error): Boolean {
+        this.error = error
+        return view?.let {
+            setTextToViews()
+            true
+        } ?: false
+    }
+
     companion object {
 
         @JvmStatic
