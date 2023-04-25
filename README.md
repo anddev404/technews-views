@@ -1,4 +1,4 @@
-# **Opis**
+# **Warstwa modelu widoku**
 
    <a href="https://play.google.com/store/apps/developer?id=anddev404">
    <img width="150" align="right" style="margin:0px 0px 0px 0px" src="https://github.com/anddev404/TechNews/blob/main/images/icon.png?raw=true)](https://play.google.com/store/apps/developer?id=anddev404">
