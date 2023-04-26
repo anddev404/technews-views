@@ -46,11 +46,24 @@
                 android:padding="8dp"
                 android:textColor="@color/text_color_recycler_view"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/website_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/example_header" />
+
+            <TextView
+                android:id="@+id/website_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/item_header"
+                tools:text="google.pl" />
 
             <LinearLayout
                 android:layout_width="0dp"

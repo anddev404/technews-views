@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anddev404.tech_news_views.databinding.FragmentNewsItemBinding
 import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
+import java.net.URL
 
 class NewsItemRecyclerViewAdapter(
     private val values: List<NewsItem>
@@ -28,6 +29,10 @@ class NewsItemRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.title.text = item.header
+        try {
+            holder.website_name.text = URL(item.siteUrl).host
+        } catch (t: Throwable) {
+        }
         holder.view.setOnClickListener {
             mListener?.tapItem(position, values[position]);
         }
@@ -41,6 +46,7 @@ class NewsItemRecyclerViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val view: View = binding.allView
         val title: TextView = binding.itemHeader
+        val website_name: TextView = binding.websiteName
         val imageView: ImageView = binding.itemImageView
 
         override fun toString(): String {
