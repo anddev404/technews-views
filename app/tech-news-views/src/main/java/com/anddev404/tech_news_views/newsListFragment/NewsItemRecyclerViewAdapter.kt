@@ -30,7 +30,7 @@ class NewsItemRecyclerViewAdapter(
         val item = values[position]
         holder.title.text = item.header
         try {
-            holder.website_name.text = URL(item.siteUrl).host
+            holder.websiteName.text = URL(item.siteUrl).host
         } catch (t: Throwable) {
         }
         holder.view.setOnClickListener {
@@ -46,7 +46,7 @@ class NewsItemRecyclerViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val view: View = binding.allView
         val title: TextView = binding.itemHeader
-        val website_name: TextView = binding.websiteName
+        val websiteName: TextView = binding.websiteName
         val imageView: ImageView = binding.itemImageView
 
         override fun toString(): String {
