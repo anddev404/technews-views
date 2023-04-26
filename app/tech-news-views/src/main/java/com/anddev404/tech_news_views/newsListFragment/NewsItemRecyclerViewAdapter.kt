@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.anddev404.tech_news_views.R
 import com.anddev404.tech_news_views.databinding.FragmentNewsItemBinding
 import com.anddev404.tech_news_views.newsListFragment.model.NewsItem
 import java.net.URL
@@ -36,6 +38,13 @@ class NewsItemRecyclerViewAdapter(
         holder.view.setOnClickListener {
             mListener?.tapItem(position, values[position]);
         }
+        holder.favouriteButton.setOnClickListener {
+            Toast.makeText(
+                holder.favouriteButton.context,
+                holder.favouriteButton.context.getString(R.string.not_implemented_yet),
+                Toast.LENGTH_LONG
+            ).show()
+        }
 
         mListener?.setImage(values[position].imageUrl, values[position], holder.imageView)
     }
@@ -48,6 +57,7 @@ class NewsItemRecyclerViewAdapter(
         val title: TextView = binding.itemHeader
         val websiteName: TextView = binding.websiteName
         val imageView: ImageView = binding.itemImageView
+        val favouriteButton: ImageView = binding.favouriteImageview
 
         override fun toString(): String {
             return super.toString() + " '" + title.text + "'"
