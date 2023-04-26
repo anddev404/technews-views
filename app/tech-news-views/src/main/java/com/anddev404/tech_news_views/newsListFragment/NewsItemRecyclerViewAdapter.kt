@@ -1,5 +1,7 @@
 package com.anddev404.tech_news_views.newsListFragment
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +38,9 @@ class NewsItemRecyclerViewAdapter(
         holder.view.setOnClickListener {
             mListener?.tapItem(position, values[position]);
         }
+        holder.shareButton.setOnClickListener {
+            openShareIntent(item.siteUrl, holder.shareButton.context)
+        }
         holder.favouriteButton.setOnClickListener {
             Toast.makeText(
                 holder.favouriteButton.context,
@@ -55,6 +60,7 @@ class NewsItemRecyclerViewAdapter(
         val title: TextView = binding.itemHeader
         val websiteName: TextView = binding.websiteName
         val imageView: ImageView = binding.itemImageView
+        val shareButton: ImageView = binding.shareImageView
         val favouriteButton: ImageView = binding.favouriteImageView
 
         override fun toString(): String {
@@ -75,4 +81,13 @@ class NewsItemRecyclerViewAdapter(
 
     }
 
+    fun openShareIntent(textToShare: String, context: Context) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, textToShare)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        context.startActivity(shareIntent)
+    }
 }
