@@ -55,7 +55,7 @@ class NewsItemRecyclerViewAdapter(
         val title: TextView = binding.itemHeader
         val websiteName: TextView = binding.websiteName
         val imageView: ImageView = binding.itemImageView
-        val favouriteButton: ImageView = binding.favouriteImageview
+        val favouriteButton: ImageView = binding.favouriteImageView
 
         override fun toString(): String {
             return super.toString() + " '" + title.text + "'"

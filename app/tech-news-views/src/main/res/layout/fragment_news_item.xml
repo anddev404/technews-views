@@ -66,17 +66,17 @@
                 tools:text="google.pl" />
 
             <ImageView
-                android:id="@+id/share_imageview"
+                android:id="@+id/share_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_normal"
                 android:contentDescription="@string/share"
                 android:src="@drawable/ic_share_button"
-                app:layout_constraintRight_toLeftOf="@id/favourite_imageview"
+                app:layout_constraintRight_toLeftOf="@id/favourite_imageView"
                 app:layout_constraintTop_toBottomOf="@id/image_layout" />
 
             <ImageView
-                android:id="@+id/favourite_imageview"
+                android:id="@+id/favourite_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_normal"
