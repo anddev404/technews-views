@@ -28,9 +28,9 @@ class NewsItemRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.title.text = item.header
-        holder.view.setOnClickListener({
+        holder.view.setOnClickListener {
             mListener?.tapItem(position, values[position]);
-        })
+        }
 
         mListener?.setImage(values[position].imageUrl, values[position], holder.imageView)
     }
@@ -51,7 +51,7 @@ class NewsItemRecyclerViewAdapter(
     private var mListener: OnTapItemListener? = null
 
     fun setOnTapItemListener(onTapItemListener: OnTapItemListener) {
-        mListener = onTapItemListener;
+        mListener = onTapItemListener
 
     }
 
