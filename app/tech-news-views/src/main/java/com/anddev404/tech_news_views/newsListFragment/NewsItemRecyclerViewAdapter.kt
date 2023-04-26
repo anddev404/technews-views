@@ -20,9 +20,7 @@ class NewsItemRecyclerViewAdapter(
 
         return ViewHolder(
             FragmentNewsItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
 
